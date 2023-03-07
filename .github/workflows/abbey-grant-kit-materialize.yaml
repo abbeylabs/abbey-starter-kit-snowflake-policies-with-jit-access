@@ -26,5 +26,6 @@ jobs:
         run: terraform apply -auto-approve -input=false
         env:
           ABBEY_TOKEN: ${{ secrets.ABBEY_TOKEN }}
+          TF_VAR_account: ${{ secrets.SNOWFLAKE_ACCOUNT }}
           TF_VAR_username: ${{ secrets.SNOWFLAKE_USERNAME }}
           TF_VAR_password: ${{ secrets.SNOWFLAKE_PASSWORD }}
