@@ -126,9 +126,9 @@ resource "abbey_grant_kit" "role__pii_readonly" {
     # Path is an RFC 3986 URI, such as `github://{organization}/{repo}/path/to/file.tf`.
     location = "github://organization/repo/access.tf"
     append = <<-EOT
-      resource "snowflake_role_grants" "pii_readonly__{{ $.Data.System.Abbey.PrimaryIdentity.Username }}" {
+      resource "snowflake_role_grants" "pii_readonly__{{ .data.system.abbey.primary_identity.abbey }}" {
         role_name = "${data.snowflake_role.pii_readonly_role.name}"
-        users     = ["{{ $.Data.System.Abbey.SecondaryIdentities.Snowflake.Username }}"]
+        users     = ["{{ .data.system.abbey.secondary_identities.snowflake.username }}"]
       }
     EOT
   }
